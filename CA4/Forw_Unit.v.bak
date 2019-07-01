@@ -1,0 +1,11 @@
+module Forw_Unit(input reg_Write,input[4:0]Rs,Rt,exe_mem_reg,mem_wb_reg,output [2:0] Forw_A,Forw_B);
+    // reg_write = wb[1]        last bit of wb[1]
+    assign Forw_A = reg_Write == 1'b1 ? ((Rs == exe_mem_reg) ? 3'b010 :
+                                        ((Rs == mem_wb_reg) ? 3'b001 : 3'b000 ))
+                                        : 3'b000;
+    assign Forw_B = reg_Write == 1'b1 ? ((Rt == exe_mem_reg) ? 3'b010 :
+                                        ((Rt == mem_wb_reg) ? 3'b001 : 3'b000 )
+                                        : 3'b000;
+
+    a = b<c ? 
+endmodule
